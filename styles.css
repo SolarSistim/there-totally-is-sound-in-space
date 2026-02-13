@@ -621,6 +621,48 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   FAQ SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  background: rgba(7, 11, 26, 0.6);
+  border: 1px solid rgba(53, 242, 255, 0.25);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(53, 242, 255, 0.5);
+  background: rgba(7, 11, 26, 0.8);
+  box-shadow: 0 0 20px rgba(53, 242, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--neon-cyan-glow);
+  text-shadow: 0 0 15px rgba(53, 242, 255, 0.6);
+}
+
+.faq-answer {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--body-text-soft);
+  text-align: justify;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    KEY FINDINGS LIST
    ═══════════════════════════════════════════════════════════════ */
 
@@ -845,7 +887,7 @@ html {
   margin: 2rem auto;
   padding: 1.5rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 900px;
   min-height: 100px;
   background: rgba(13, 27, 42, 0.3);
   border: 1px solid rgba(53, 242, 255, 0.2);
