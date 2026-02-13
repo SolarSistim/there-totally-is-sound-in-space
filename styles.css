@@ -624,25 +624,29 @@ html {
    FAQ SECTION
    ═══════════════════════════════════════════════════════════════ */
 
+.faq-card {
+  margin-top: 3rem;
+}
+
 .faq-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .faq-item {
   padding: 1.5rem;
-  background: rgba(7, 11, 26, 0.6);
-  border: 1px solid rgba(53, 242, 255, 0.25);
-  border-radius: 12px;
+  background: rgba(7, 11, 26, 0.5);
+  border-left: 3px solid var(--neon-cyan-glow);
+  border-radius: 6px;
   transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-  border-color: rgba(53, 242, 255, 0.5);
-  background: rgba(7, 11, 26, 0.8);
+  border-left-color: var(--soft-plasma-blue);
+  background: rgba(7, 11, 26, 0.7);
   box-shadow: 0 0 20px rgba(53, 242, 255, 0.15);
-  transform: translateY(-2px);
+  transform: translateX(4px);
 }
 
 .faq-question {
