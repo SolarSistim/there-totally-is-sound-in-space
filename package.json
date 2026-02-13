@@ -1,0 +1,9 @@
+{
+  "name": "there-totally-is-sound-in-space",
+  "version": "1.0.0",
+  "description": "There Totally Is Sound In Space - Scientific evidence that sound exists in space",
+  "private": true,
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

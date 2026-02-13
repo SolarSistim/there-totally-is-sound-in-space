@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound in Space Confirmed - Header</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN03BGVCWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EN03BGVCWT');
+  </script>
+
+  <style>
+    /* Reset & Base Styles */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #070B1A;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Cosmic Container & Background */
+    .cosmic-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: radial-gradient(
+        circle at 30% 40%,
+        #1BAFAF 0%,
+        #0D1B2A 45%,
+        #070B1A 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Static Starfield */
+    .stars,
+    .stars2,
+    .stars3 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .stars {
+      background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="%23ffffff" opacity="0.3"/></svg>') repeat;
+      z-index: 1;
+    }
+
+    .stars2 {
+      background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="%2335F2FF" opacity="0.4"/></svg>') repeat;
+      z-index: 1;
+    }
+
+    .stars3 {
+      background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1.5" fill="%239CFBFF" opacity="0.2"/></svg>') repeat;
+      z-index: 1;
+    }
+
+    /* Nebula Glow Effects */
+    .nebula-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .nebula-glow-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #1BAFAF 0%, transparent 70%);
+      top: 10%;
+      right: -200px;
+    }
+
+    .nebula-glow-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #1ED6E3 0%, transparent 70%);
+      bottom: 20%;
+      left: -150px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .cosmic-title {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .title-line {
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #35F2FF, #1ED6E3, #6FF7FF);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow:
+        0 0 30px rgba(53, 242, 255, 0.8),
+        0 0 60px rgba(30, 214, 227, 0.6),
+        0 0 90px rgba(111, 247, 255, 0.4);
+      animation: titleGlow 3s ease-in-out infinite;
+      line-height: 1.2;
+    }
+
+    .title-line.subtitle {
+      font-size: clamp(1.5rem, 5vw, 4rem);
+      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+
+    @keyframes titleGlow {
+      0%, 100% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.3);
+      }
+    }
+
+    .title-accent {
+      width: 300px;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, #35F2FF, transparent);
+      margin: 2rem auto;
+      box-shadow: 0 0 20px #35F2FF;
+      animation: accentPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes accentPulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scaleX(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scaleX(1.2);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .title-line {
+        letter-spacing: 0.1em;
+      }
+
+      .title-accent {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cosmic-container">
+    <!-- Static starfield layers -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <!-- Nebula glow effects -->
+    <div class="nebula-glow nebula-glow-1"></div>
+    <div class="nebula-glow nebula-glow-2"></div>
+
+    <!-- Hero section -->
+    <div class="hero-section">
+      <h1 class="cosmic-title">
+        <span class="title-line">BREAKING NEWS</span>
+        <span class="title-line">SOUND IN SPACE</span>
+        <span class="title-line subtitle">CONFIRMED BY SCIENCE</span>
+      </h1>
+      <div class="title-accent"></div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position: fixed; bottom: 20px; left: 0; right: 0; text-align: center; z-index: 1000;">
+      <p style="margin: 0; font-size: 0.85rem; color: rgba(207, 233, 243, 0.7);">
+        Ironically created and maintained by <a href="https://www.allthethings.dev" target="_blank" rel="noopener noreferrer" style="color: #35F2FF; text-decoration: none;">AllTheThings.dev</a> | <a href="index.html" style="color: #35F2FF; text-decoration: none;">Main Page</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Visitor Tracking Script -->
+  <script>
+    (function() {
+      'use strict';
+
+      function getSessionId() {
+        let sessionId = sessionStorage.getItem('sessionId');
+        if (!sessionId) {
+          sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          sessionStorage.setItem('sessionId', sessionId);
+        }
+        return sessionId;
+      }
+
+      function getDeviceType() {
+        const ua = navigator.userAgent;
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+          return 'Tablet';
+        }
+        if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+          return 'Mobile';
+        }
+        return 'Desktop';
+      }
+
+      function getScreenResolution() {
+        return window.screen.width + 'x' + window.screen.height;
+      }
+
+      function getUserLanguage() {
+        return navigator.language || navigator.userLanguage || 'Unknown';
+      }
+
+      function getUserTimezone() {
+        try {
+          return Intl.DateTimeFormat().resolvedOptions().timeZone;
+        } catch (e) {
+          return 'Unknown';
+        }
+      }
+
+      function sendLog(urlPath, sheetName) {
+        try {
+          const visitorData = {
+            domain: window.location.hostname,
+            referrer: document.referrer || 'Direct',
+            urlPath: urlPath,
+            sessionId: getSessionId(),
+            deviceType: getDeviceType(),
+            userAgent: navigator.userAgent,
+            screenResolution: getScreenResolution(),
+            language: getUserLanguage(),
+            timezone: getUserTimezone(),
+            sheetName: sheetName
+          };
+
+          fetch('/.netlify/functions/log-visit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(visitorData),
+            keepalive: true
+          }).catch(function(err) {
+            console.debug('Visit logging failed:', err);
+          });
+        } catch (error) {
+          console.debug('Error logging visit:', error);
+        }
+      }
+
+      function logVisit() {
+        var urlPath = window.location.pathname;
+        var hasLogged = sessionStorage.getItem('hasLoggedVisit');
+
+        // Defer all logging by 3 seconds to improve page load performance
+        setTimeout(function() {
+          // Log initial visit to visitor_logs (once per session)
+          if (!hasLogged) {
+            sessionStorage.setItem('hasLoggedVisit', 'true');
+            sendLog(urlPath, 'visitor_logs');
+          }
+
+          // Log page view to page_views (every navigation)
+          // Use requestIdleCallback to ensure this doesn't impact performance
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+              sendLog(urlPath, 'page_views');
+            }, { timeout: 2000 });
+          } else {
+            // Fallback for browsers that don't support requestIdleCallback
+            setTimeout(function() {
+              sendLog(urlPath, 'page_views');
+            }, 100);
+          }
+        }, 3000); // Wait 3 seconds before logging
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', logVisit);
+      } else {
+        logVisit();
+      }
+    })();
+  </script>
+</body>
+</html>
