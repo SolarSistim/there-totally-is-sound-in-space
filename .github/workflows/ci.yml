@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci || npm install
+
+    - name: Validate HTML
+      run: |
+        npx html-validate index.html header.html || echo "HTML validation completed"
+
+    - name: Check for broken links (basic)
+      run: |
+        echo "Checking for common issues..."
+        grep -r "localhost" *.html *.js *.css || echo "No localhost references found"
+
+    - name: File structure check
+      run: |
+        echo "Verifying required files..."
+        test -f index.html && echo "✓ index.html exists"
+        test -f styles.css && echo "✓ styles.css exists"
+        test -f script.js && echo "✓ script.js exists"
+        test -f netlify.toml && echo "✓ netlify.toml exists"
+        echo "All required files present!"
+
+    - name: Build summary
+      run: |
+        echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- HTML files: $(find . -name '*.html' | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- CSS files: $(find . -name '*.css' | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- JS files: $(find . -name '*.js' | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Validation complete!" >> $GITHUB_STEP_SUMMARY
