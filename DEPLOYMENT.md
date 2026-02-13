@@ -101,16 +101,29 @@ View workflow runs at:
 
 ## 🔐 Environment Variables
 
-If you need to add environment variables (API keys, secrets):
+**REQUIRED:** Your site uses Google Sheets API for visitor logging and needs these environment variables configured:
 
-1. Go to Netlify Dashboard → Site Settings → Environment Variables
-2. Add your variables
-3. They'll be available to your serverless functions
+- `GOOGLE_SERVICE_ACCOUNT_EMAIL`
+- `GOOGLE_PRIVATE_KEY`
 
-Example:
-```
-GOOGLE_API_KEY=your-key-here
-```
+### Quick Setup
+
+**📖 Full setup guide: [GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md)**
+
+**Fastest method** - Copy from your working Star Trek vs Star Wars site:
+1. Go to your working site's Netlify Dashboard → Environment Variables
+2. Copy `GOOGLE_SERVICE_ACCOUNT_EMAIL` and `GOOGLE_PRIVATE_KEY`
+3. Add them to this site's Environment Variables
+4. Trigger a redeploy
+
+Without these variables, you'll get a 500 error on the `/log-visit` function.
+
+### Adding Environment Variables
+
+1. Netlify Dashboard → Site Settings → Environment Variables
+2. Click "Add a variable"
+3. Add both required variables
+4. Redeploy the site (Deploys → Trigger deploy)
 
 ## 📱 Deploy Notifications
 
